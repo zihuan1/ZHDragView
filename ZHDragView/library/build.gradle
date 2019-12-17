@@ -1,4 +1,6 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion 26
@@ -9,8 +11,6 @@ android {
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
-
-
     }
 
     buildTypes {
@@ -51,14 +51,20 @@ android {
         archives sourcesJar
         archives javadocJar
     }
-    dataBinding {
-        enabled = true
+    //    https://deskid.github.io/2019/03/05/about-kotlin-module/
+    compileOptions {
+        kotlinOptions.freeCompilerArgs += ['-module-name', "com.zihuan.selectpicture"]
     }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.android.support:appcompat-v7:26.1.0'
-    implementation 'com.android.support:recyclerview-v7:26.1.0'
+    implementation 'androidx.appcompat:appcompat:1.0.0'
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation "androidx.core:core-ktx:+"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
+}
+repositories {
+    mavenCentral()
 }

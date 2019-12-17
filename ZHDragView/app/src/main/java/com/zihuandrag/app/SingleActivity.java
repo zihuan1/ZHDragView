@@ -1,10 +1,10 @@
 package com.zihuandrag.app;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.helper.ItemTouchHelper;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import android.view.View;
 
 import com.zihuan.baseadapter.ViewOnItemClick;
@@ -64,7 +64,6 @@ public class SingleActivity extends AppCompatActivity implements ViewOnItemClick
     public void setOnItemClickListener(View view, int postion) {
         switch (view.getId()) {
             case R.id.rl_left:
-                break;
             case R.id.rl_right:
                 break;
         }

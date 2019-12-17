@@ -3,21 +3,21 @@ package com.zihuandrag.app;
 import android.app.Service;
 import android.os.Bundle;
 import android.os.Vibrator;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.widget.Toast;
 
 import com.zihuan.baseadapter.ViewOnItemClick;
 import com.zihuan.baseadapter.ViewOnItemLongClick;
-import com.zihuan.recyclerview.drag.DragListenerHelper;
-import com.zihuan.recyclerview.drag.DragListenerInterface;
+import com.zihuan.recyclerview.drag.DragMultipleHelper;
+import com.zihuan.recyclerview.drag.DragMultipleInterface;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MultipleActivity extends AppCompatActivity implements ViewOnItemClick, ViewOnItemLongClick, DragListenerInterface {
+public class MultipleActivity extends AppCompatActivity implements ViewOnItemClick, ViewOnItemLongClick, DragMultipleInterface {
 
     RecyclerView rvLeft, rvRight;
     LeftAdapter mLeftAdapter;
@@ -73,11 +73,11 @@ public class MultipleActivity extends AppCompatActivity implements ViewOnItemCli
         mRight.add(new LeftEntity("雁阵惊寒", 0, 4));
         mRight.add(new LeftEntity("声断衡阳之阜", 0, 4));
 
-        mDragHelper = new DragListenerHelper(rvLeft, this);
+        mDragHelper = new DragMultipleHelper(rvLeft, this);
     }
 
 
-    DragListenerHelper mDragHelper;
+    DragMultipleHelper mDragHelper;
 
     @Override
     public void setOnItemClickListener(View view, int postion) {
@@ -115,6 +115,8 @@ public class MultipleActivity extends AppCompatActivity implements ViewOnItemCli
 
     @Override
     public void actionDrop(int startPosition, int currentPosition, String value) {
+
+//        这个数据显示有问题
         LeftEntity rentity = mEntities.get(startPosition);
         LeftEntity lentity = mLeft.get(currentPosition);
 

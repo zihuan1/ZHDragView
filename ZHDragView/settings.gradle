@@ -1,1 +1,1 @@
-include ':app', ':zhdraglib'
+include ':app', ':library'

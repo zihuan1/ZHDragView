@@ -1,10 +1,22 @@
 package com.zihuan.recyclerview.drag;
 
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 
 public interface DragItemTouchInterface {
-//    选中的回调
+
+    /**
+     * 拖拽选中
+     *
+     * @param viewHolder
+     * @param actionState
+     */
     void onSelectedChanged(RecyclerView.ViewHolder viewHolder, int actionState);
-//    完成的回调
+
+    /**
+     * 拖拽完成
+     *
+     * @param recyclerView
+     * @param viewHolder
+     */
     void clearView(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder);
 }
