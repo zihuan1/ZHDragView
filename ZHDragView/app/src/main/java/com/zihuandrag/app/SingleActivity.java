@@ -1,10 +1,12 @@
 package com.zihuandrag.app;
 
 import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.ItemTouchHelper;
+
 import android.view.View;
 
 import com.zihuan.baseadapter.ViewOnItemClick;
@@ -72,6 +74,6 @@ public class SingleActivity extends AppCompatActivity implements ViewOnItemClick
 
     @Override
     public void setOnItemLongClickListener(View view, int postion) {
-        itemTouchHelper.startDrag(rvRight.getChildViewHolder(rvRight.getChildAt(postion)));
+        itemTouchHelper.startDrag(rvRight.getChildViewHolder(view));
     }
 }
